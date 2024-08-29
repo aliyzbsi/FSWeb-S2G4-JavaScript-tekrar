@@ -55,7 +55,7 @@ function CemberinCevresi(yaricap) {
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(CemberinAlani(5));
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. Argüman olarak çemberin yarıçapını BİRİNCİ parametre olacak alacaktır. 
@@ -70,42 +70,24 @@ function CemberinAlani(yaricap, pi = 3.14159) {
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
+console.log(CemberinAlani(15));
+
 /* 	GÖREV 3:
 	- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. 
   Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. 
   Bu diziyi kullanarak aşağıdakileri uygulayın:
 		3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki 
     en küçük sayı ile en büyük sayıyı bu değişkenlere atayın. (for döngüsü kullanın)
-		
-
-		
-		3c. `ucetambolunenler` dizisindeki sayıların toplamını .reduce metoduyla bulup,
-     sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın)
-		
-		3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, 
-    sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
-		
-		3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp 
-    `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
-		
-		3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki
-     bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla
-     kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string
-      oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
-		ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir"
-    stringini `tekraredensayilar` dizisine aktaracağız.
-		💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız,
-     bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar 
-     edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
 */
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-// 3a çözümü
+console.log(sayilar.length);
 
+// 3a çözümü
+let enbuyuk = sayilar[0];
+let enkucuk = sayilar[0];
 const buyukKucuk = (sayilar) => {
-  let enbuyuk = sayilar[0];
-  let enkucuk = sayilar[0];
   for (let i = 0; i < sayilar.length; i++) {
     if (enbuyuk < sayilar[i]) {
       enbuyuk = sayilar[i];
@@ -116,36 +98,80 @@ const buyukKucuk = (sayilar) => {
   }
   return { enbuyuk, enkucuk };
 };
-
+console.log("En Büyük ve En Küçük Sayılar :", buyukKucuk(sayilar));
 /*3b. `ucetambolunenler` adında bir dizi tanımlayın ve bu diziye sayilar dizisindeki 
     3'ün tam katı olan sayıları atayın (.forEach metodunu kullanın)*/
 // 3b çözümü:
-
-const uceBolunenler = (sayilar) => {
-  let ucetambolunenler = [];
-  sayilar.forEach((element) => {
-    if (element % 3 === 0) {
-      ucetambolunenler.push(element);
-    }
-  });
-  return ucetambolunenler;
-};
-
+let ucetambolunenler = [];
+sayilar.forEach((element) => {
+  if (element % 3 === 0) {
+    ucetambolunenler.push(element);
+  }
+});
+console.log("Üçe Tam Bölünenler :", ucetambolunenler);
+/*
+3c. `ucetambolunenler` dizisindeki sayıların toplamını .reduce metoduyla bulup,
+     sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın) */
 // 3c çözümü:
 
-/* kodlar buraya */
+let ucebolunenlerintoplami = 0;
+const sonuc = ucetambolunenler.reduce((a, b) => a + b, 0);
+ucebolunenlerintoplami = sonuc;
 
+console.log("Üçe Bölünenlerin Toplamı :", ucebolunenlerintoplami);
+
+/* 
+	3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, 
+    sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
+     */
 // 3d çözümü
 
-/* kodlar buraya */
+const besyuzdenkucuksayilar = sayilar.filter((element) => element < 500);
+console.log("500'den küçük sayılar : ", besyuzdenkucuksayilar);
 
+/*
+		3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp 
+    `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
+*/
 // 3e çözümü
 
-/* kodlar buraya */
-
+const siralisayilar = [];
+besyuzdenkucuksayilar.sort((a, b) => a - b);
+siralisayilar.push(...besyuzdenkucuksayilar);
+console.log(
+  "500'den küçük sayıların küçükten büyüğe sıralaması :",
+  siralisayilar
+);
+/*
+	3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki
+     bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla
+     kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string
+      oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
+		ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir"
+    stringini `tekraredensayilar` dizisine aktaracağız.
+		💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız,
+     bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar 
+     edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
+      */
 // 3f çözümü
 
-/* kodlar buraya */
+let tekraredensayilar = [];
+
+for (let i = 0; i < sayilar.length; i++) {
+  let sayi = sayilar[i];
+  let tekrarSayisi = 0;
+  if (sayi === tekraredensayilar[i]) {
+    continue;
+  }
+  for (let j = 0; j < sayilar.length; j++) {
+    if (sayilar[j] === sayilar[i]) {
+      tekrarSayisi++;
+    }
+  }
+  tekraredensayilar.push(
+    `${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`
+  );
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
